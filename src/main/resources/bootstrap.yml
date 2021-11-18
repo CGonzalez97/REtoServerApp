@@ -1,7 +1,10 @@
 spring:
-  application:
+  application:    
     name: properties
-  cloud:
-    config:
-      enabled: true
-      uri: http://localhost:8888
+  cloud:    
+    config:      
+      server:
+        git:
+          uri: https://github.com/CGonzalez97/Config-Server.git
+          default-label: main
+          search-paths: '*service'

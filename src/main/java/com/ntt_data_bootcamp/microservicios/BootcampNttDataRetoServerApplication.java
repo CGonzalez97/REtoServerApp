@@ -4,12 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.config.server.EnableConfigServer;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 import com.ntt_data_bootcamp.microservicios.Models.PersonaBuilder;
 
 @SpringBootApplication
 @EnableEurekaClient
+@EnableConfigServer
 public class BootcampNttDataRetoServerApplication implements CommandLineRunner{
 	
 	@Autowired
