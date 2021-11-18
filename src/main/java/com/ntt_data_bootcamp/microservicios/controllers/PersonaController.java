@@ -51,16 +51,22 @@ public class PersonaController {
 		return ResponseEntity.status(HttpStatus.OK).body(servicio.getAll());
 	}
 	
+	public HttpStatus showNotFound() {
+		logger.info("Searched person not found.");
+		return HttpStatus.OK;
+	}
+	
 	@GetMapping("/{id}")
 	public ResponseEntity<Persona> getById(@PathVariable("id") Long id){
 		counterGetById.increment();
 		Optional<Persona> resul = servicio.getById(id);
-		if(resul.isEmpty()) {
-			logger.info("Searched person not found.");
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-		}else {
-			return ResponseEntity.status(HttpStatus.OK).body(resul.get());
-		}
+//		if(resul.isEmpty()) {
+//			logger.info("Searched person not found.");
+//			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+//		}else {
+//			return ResponseEntity.status(HttpStatus.OK).body(resul.get());
+//		}
+		return ResponseEntity.of(resul);
 	}
 	
 	@PutMapping()
